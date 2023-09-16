@@ -1,0 +1,147 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <h1> 벽돌깨기</h1>
+    <meta charset="UTF-8" />
+    <title>Making your first Phaser 3 Game - Part 7</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='game.css') }}">
+    <style type="text/css">
+        body {
+            margin-top: 200;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 60 },
+                debug: false
+            }
+        },
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    var player;
+    var platforms;
+    var cursors;
+    var ground;
+    var wall;
+    var cloud;
+    
+    var game = new Phaser.Game(config);
+
+    function preload() {
+        this.load.image('cloud', 'static/assets/cloud.png'); // 이미지 경로 수정
+        this.load.image('sky', 'static/assets/sky.png'); // 이미지 경로 수정
+        this.load.image('ground', 'static/assets/ground.png'); // 이미지 경로 수정
+        this.load.image('star', 'static/assets/star.png'); // 이미지 경로 수정
+        this.load.image('bomb', 'static/assets/bomb.png'); // 이미지 경로 수정
+        this.load.spritesheet('ball', 'static/assets/ball.png', { frameWidth: 1000, frameHeight: 100 }); // 이미지 경로 수정
+        this.load.spritesheet('wall', 'static/assets/wall.png', { frameWidth: 1000, frameHeight: 100 }); // 이미지 경로 수정
+    }
+
+
+    function create ()
+    {
+        
+        
+        platforms = this.physics.add.staticGroup();
+        wall = this.physics.add.staticGroup();
+        
+        platforms.create(400, 300, 'sky');
+        var cloudy = this.physics.add.staticGroup(); // 벽돌을 담을 그룹 생성
+
+
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 7; j++) {
+                var cloud = cloudy.create(80 + i * 70, 50 + j * 30, 'cloud');
+            }
+        }
+        
+    
+        ground = this.physics.add.sprite(400, 620, 'ground');
+        wall = this.physics.add.sprite(this.cameras.main.width*0.6, this.cameras.main.height-5, 'wall');
+        player = this.physics.add.sprite(this.cameras.main.width*0.5, 400, 'ball');
+        player.setVelocityX(100);
+        player.setVelocityY(-300);
+        player.setBounce(1, 1.2);
+    
+
+        
+        
+        player.setCollideWorldBounds(true);
+        wall.setCollideWorldBounds(true);
+        ground.setCollideWorldBounds(true);
+    
+        this.physics.add.collider(player, cloudy, function(player,cloud){   
+            console.log('1');           
+            cloud.destroy();
+        });
+        this.physics.add.collider(player, ground, function(){
+            console.log('12');
+            location.reload();
+            alert('Game over!');
+            player.destory();
+        }, )
+        
+        this.physics.add.collider(player, wall, function() {
+
+        console.log(player.body.velocity.y)
+        player.body.velocity.y = -400; // Y축 속도 반전
+        
+        console.log(player.body.velocity.y)
+        }, null, this);
+        
+        cursors = this.input.keyboard.createCursorKeys();
+    
+  }
+    
+
+  function update ()
+
+{
+    if(this.input.activePointer.worldX !==0)
+    {
+        console.log(this.input.activePointer.worldX)
+        wall.x = this.input.activePointer.worldX;
+        this.input.activePointer.worldX = 0
+    }
+    else{
+    
+    
+        if (cursors.left.isDown)
+        {
+            wall.setVelocityX(-260);
+
+        }
+        else if (cursors.right.isDown)
+        {
+            wall.setVelocityX(160);
+
+        }
+        else
+        {
+            wall.setVelocityX(0);
+
+        }
+    }
+}
+</script>
+
+</body>
+</html>

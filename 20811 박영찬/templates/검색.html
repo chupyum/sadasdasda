@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .chat-content { height: 800px; overflow-y: scroll;}
+    .line { margin-top: 10px; display: flex;}
+    .chat-box {background: #eee; padding: 5px; max-width: 1000px; font-size: 40px; }
+    .mine {margin-left: auto;}
+   
+  </style>
+  <div class="chat-content">
+    <div class="line">
+      <span class="chat-box">안녕하세요 챗봇입니다</span>
+    </div>
+    <div class="line">
+      <span class="chat-box mine">처음화면으로 라고 입력하면 메인화면으로 돌아가요</span>
+    </div>
+  </div>
+  <input class="chat-box" id="input">
+  <button id="send">전송</button>
+
+  <script>
+    document.querySelector('#send').addEventListener('click',function(){
+      var tem = `<div class='line'>
+      <span class="chat-box mine">${document.querySelector('#input').value}</span>
+      <div>`
+        document.querySelector('.chat-content').insertAdjacentHTML('beforeend',tem)
+        document.querySelector('#inqut')
+        relply();
+    });
+    function relply(){
+      const i = document.querySelector('input').value
+      const r = getReply(i);
+
+      const replyLine = document.createElement('div');
+      replyLine.className = 'line';
+
+      const replyBox = document.createElement('span');
+    replyBox.className = 'chat-box';
+    replyBox.innerHTML = r;
+
+      replyLine.appendChild(replyBox);
+      document.querySelector('.chat-content').appendChild(replyLine);
+    }
+
+    function getReply(i) {
+      
+      if (i === '안녕') {
+        return '안녕하세요!';
+      } else if (i === '반가워') {
+        return '만나서 반가워요!';
+      } 
+      else if (i === '시간'){
+         const currentTime = new Date().toLocaleTimeString();
+        return `현재 시간은 ${currentTime}입니다.`;
+      } 
+      else if (i==='디스코드'){
+        return'https://discord.gg/bMsJbTSg';
+      }
+      else if(i=== '다음'){
+        setTimeout(function(){
+          window.location.href="라.html"
+          },3000);
+        return '네.이동하겠습니다';
+      
+
+      }
+      else if(i==='나의 진로'){
+        return '<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FI6jsX%2Fbtsg0uqZCDZ%2FUi40KclKrLK1ctRChKvIcK%2Fimg.png" alt="사진">';
+      }
+      else if(i==='오리'){
+        return '<img src="https://media.tenor.com/SnGv5ezAqw8AAAAC/cute-duck.gif" alt="사진">';
+      }
+      else if(i==='hamter'){
+        return '<img src="https://media.tenor.com/6VRvjjrlnJgAAAAd/hamster-m%C3%BCmmelmann.gif">';
+      }
+      else if(i==='김혀누'){
+        return '머저리';
+      }
+      else if(i==='내 장래희망을 알려줘'){
+        return '프로그래머이고 하는일은 ';
+      }
+      else if(i==='처음화면으로'){
+        setTimeout(function(){
+          window.location.href="index.html"
+          },3000);
+        return '네.이동하겠습니다';
+
+      }
+      else {
+        return '그런건 모른다 애송이녀석.';
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+

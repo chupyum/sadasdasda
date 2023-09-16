@@ -1,0 +1,337 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin: 0;
+            }
+            .snb{
+                margin-top: 45;
+                display: none;
+                padding: 0;
+                position:fixed;
+                background-color: rgb(51, 50, 50);
+
+            }
+            .snb ul{
+                list-style-type: none;
+                margin-left: 25;
+                padding-left: 0;
+                margin-top: 0;
+                margin-right: 100;
+                margin-bottom: 10;
+            }
+            .snb a {
+                display: block;
+                color:rgb(255, 255, 255);
+                margin-bottom: 10 ;
+                float:left;
+                text-decoration: none;
+                font-size: 20;
+
+            }
+            nav{
+
+                position: fixed;
+                background-color: rgb(56, 56, 56);
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 46;
+            
+               
+
+            }
+            .snb a:hover{
+                color:rgb(124, 124, 124);
+                font-size: 25;
+            }
+
+            .nt{
+                
+                padding-right: 0;
+                text-align:center;
+                padding-top:0;
+                font-size:35;
+                color:white;
+                font-weight:bold;
+            }
+            .but{               
+            position:absolute;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            outline: none;
+            border: none;
+            right: -49px;
+            width: 49px;
+            height: 47px;
+            top:1;
+            background: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPmQL9%2FbtsgQpbeNk9%2FEqDeK0jrw3vVBNWPMStgT1%2Fimg.png) 
+                no-repeat;
+            }
+            .boff{  
+            position: absolute;
+            background-color:rgb( 56, 56, 56);         
+            display:block;
+            text-decoration: none;
+            cursor: pointer;
+            outline: none;
+            border-top: -10px;
+            width: 51px;
+            height: 51px;
+            top: 0px;
+            background: url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmPbzm%2FbtsgNXslMZ0%2Ft1pmwbrcibJIXVeyKeWOSK%2Fimg.png) 
+                no-repeat;
+            }
+            nav u a {
+                
+                display: inline-block;
+                color: white;
+                text-align:center;
+                padding:15px 17px;
+                font-size:15;
+                text-decoration: none;
+                margin:0;
+            }
+            
+
+ 
+            nav u a:hover{
+                background-color: rgb(223, 223, 223);
+                color: rgb(56, 56, 56);
+                margin: 0;
+            }
+            i {
+          
+                justify-content: center;
+                display: flex;
+                font-family: Verdana, sans-serif;
+                font-size: 40px; 
+                font-style: normal;
+                margin-left: -200;
+                
+            }
+            .nt a{
+                text-decoration: none;
+                color:white;
+                
+            }
+            d {
+            padding: 100;
+            margin-left: -200;
+            justify-content: center;
+            display: flex;
+            font-family: Verdana, sans-serif;
+            font-size: 50px; 
+            font-style: normal;
+            }
+            u a {
+            display: block;
+            color:white;
+            float: right;
+            padding: 15px;
+            text-align:center;
+            text-decoration: none;
+            }
+            
+
+        
+        nav k:hover{
+                background-color: rgb(223, 223, 223);
+                color: rgb(56, 56, 56);
+                margin: 0;
+        }
+        o a{
+            float: left;
+            padding-top:-1000px;
+            margin-top: -44px;
+            padding-left:30px;
+            text-decoration: none;
+            color:black;
+
+        }
+         pre{
+           
+            font-size:30px;
+            padding-top:0px;
+            padding-right:0;
+            margin:0;
+        }
+
+        .r a{
+            display: block;
+            padding-top:0px;
+            font-size:40;
+            
+        }
+        .note {
+            margin-left:auto;
+            display: block;
+            float: right;
+            position: fixed;
+            padding-right:10px;
+            margin-top: 50px;
+            width: 280;
+            right:10;
+            height: 1000;
+            background-color: rgb(192, 192, 192);
+        }
+        .note a{
+            float: left;
+            font-size:40
+        }
+        .bar{
+            background-color: rgb(192, 192, 192);
+            height:5px;
+            margin-top: 120;
+            width: 210;
+        }
+        .ba{
+            height: 400;
+            width: 6000;
+            
+        }
+        .barr{
+            height: 80;
+            width: 1000;
+        }
+        .var{
+            height:200;
+            width: 1800;
+        }
+        </style>
+            <title>0chan</title>
+            <script>
+                function speak(text){
+                    let msg = new SpeechSynthesisUtterance(text);
+                    window.speechSynthesis.speak(msg);
+                }
+
+              
+            </script>
+        </head>
+    <body>
+
+
+        <nav>
+                <u>
+                   
+                    <a href="18.html">{{session["username"]}}</a>
+                    <a href="log_out.html"> 로그아웃</a>
+                </u>
+            <div class="nt">
+                <a href="logined.html">0chan</a>
+            </div>
+        <nav class="boff">
+            <k href="#a"></k>
+        </nav>
+            
+            
+        </nav> 
+        <div class="snb">
+            <ul>  
+                <li><a href="logined.html">Home</a></li>
+                <li><a href="poem.html">poem</a></li>
+                <li><a href="sigma.html">sigma</a></li>
+                <li><a href="modren.html">modren</a></li> 
+            </ul>
+            <button class="but">
+                <a href="#a"></a>
+            </button>
+        </div>
+        <div class="note">
+            <a>engagement</a>
+            <a>n.교감 </a>
+            <div class="bar"></div>
+            <a> surveillance  </a>
+            <a> n.감시</a>
+            <div class="bar"></div>
+            <a>intermediates </a>
+            <a>n.매개체</a>
+            <div class="bar"></div>
+            <a>engage  </a>
+            <a>v.참여하다</a>
+            <div class="bar"></div>
+            <a>encouragement  </a>
+            <a>n.격려 </a>
+            <div class="bar"></div>
+            <a>incentives  </a>
+            <a>n.동기 </a>
+            
+        </div>
+        
+        <script>
+            const b = document.querySelector('.but');
+            const ta = document.querySelector('.snb');
+            const bo = document.querySelector('.boff');
+            b.addEventListener('click',function(){
+                ta.style.display ='none';
+                bo.style.display ='block';
+            });
+
+            bo.addEventListener('click',function(){
+                ta.style.display ='block';
+                bo.style.display='none';
+            });
+        </script>
+        <o>
+            <o>
+            
+        <div class="r">
+            <a class="var"></a>
+        <a>
+            (C) For instance, in addition to playing music, / a social personal
+        </a>
+        <a class="var"></a>
+        <a>
+            assistant robot / would express its engagement with the             
+        </a>
+        
+        <a class="barr"></a>
+        <a class="barr"></a>
+        <a class="barr"></a>
+
+        <a> <pre>          ~하기 위해서</pre>
+            music / so that users would feel like they are listening <a class="barr"></a>
+        </a>
+        <a class="var"></a>
+        <a> 
+            to the music together (with the robot.)
+            
+        
+        </a>
+        <a class="var"></a>
+        <a class="var"></a>
+        <a>예를 들어, 소셜 개인용 도우미 로봇은 음악을 재생할 뿐만 아니라 </a>
+        <a class="var"></a>
+        <a>사용자가 로봇과  함께 그 음악을 듣는 것 처럼 느끼도록 음악과의 교감을 표현한다</a>
+
+        <a class="var"></a>
+        <a class="var"></a>
+        
+        
+        
+        
+        <a>
+            <pre>                    병렬구조                                   병렬구조 </pre>
+            These robots / can be used / as surveillance devices, act (as
+        </a>
+        <a class="var"></a>
+        <a><pre>                                      병렬구조                     병렬구조      </pre>
+            communicative intermediates,) engage in richer games, tell stories,
+        </a>
+        <a class="var"></a>
+        <a> 
+            or be used to provide encouragement or incentives.
+        </a>
+        <a class="ba"></a>
+        <a>  이들 로봇은 보안 감시 장치로 사용될 수 있거나, 통신 매개체의 역할을 하거나, </a>
+        <a class="var"></a>
+        <a>  더 다채로운 게임에 참여하거나, 이야기를 들려주거나, </a>
+        <a class="var"></a>
+            <a>  격려나 동기를 제공하는 데 사용될 수 있다.</a>
+        <a class="var"></a>
+        <a class="var"></a>
+        </div>
